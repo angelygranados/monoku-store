@@ -11,7 +11,7 @@ export default function TabOneScreen({ navigation }) {
   const [noShow, setNoShow] = React.useState(false);
   React.useEffect(() => {
     fetch(
-      "https://prueba2020.monoku.com/api/productos/?stand=e61cda92-083c-49e8-9878-a008164830fb"
+      "https://prueba2020.monoku.com/api/productos/?stand=93e270b3-f492-493c-b0d2-96e207d77490"
     )
       .then((res) => res.json())
       .then((data) => setProducts(data));
@@ -49,7 +49,7 @@ export default function TabOneScreen({ navigation }) {
         </View>
       )}
       {detailProduct.length > 0 && (
-        <View>
+        <View style={styles.selected}>
           <Product
             key={selectedProduct}
             {...products.find((item) => item.id == selectedProduct)}
@@ -82,6 +82,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
   },
+  selected: {
+    marginTop: 50,
+    textAlign: "center",
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   title: {
     fontSize: 30,
     color: "#522D8B",
@@ -113,6 +121,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 15,
+    margin: 5,
   },
   separator: {
     marginVertical: 30,

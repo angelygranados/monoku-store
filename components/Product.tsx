@@ -6,7 +6,7 @@ const Product = ({ id, image, nombre, handleOnClick }) => {
     <View
       key={id}
       style={[styles.container]}
-      onClick={(e) => handleOnClick(e, id)}
+      onTouchStart={(e) => handleOnClick(e, id)}
     >
       <Image source={{ uri: image }} style={styles.image} />
       <Text style={styles.title}>{nombre}</Text>
@@ -17,7 +17,6 @@ const Product = ({ id, image, nombre, handleOnClick }) => {
 const styles = StyleSheet.create({
   container: {
     textAlign: "center",
-    cursor: "pointer",
   },
   image: {
     width: 80,
